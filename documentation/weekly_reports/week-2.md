@@ -9,3 +9,5 @@ Test coverage is currently 0%
 ## Functionality
 
 Work on the solving algorithm will begin next week
+
+### Hours spent ~4
