@@ -4,12 +4,12 @@ class Visualiser():
         self.width = width
         self.height = height
 
-    def draw(self, board):
+    def draw(self, board: list):
         rows = []
         for i in range(self.height):
             row = ""
             for num in self.projections[1][i]:
-                row += str(num).rjust(2)
+                row += str(num).ljust(2)
             row += "|"
             for square in board[i]:
                 if square:
@@ -42,3 +42,4 @@ class Visualiser():
         output += ("└" + "─┴" * (self.width-1) + "─┘").rjust(maxrow) + "\n"
 
         print(output)
+        

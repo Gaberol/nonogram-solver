@@ -1,4 +1,5 @@
 from visualiser import Visualiser
+from board import Board
 
 
 # The numbers on the side of the puzzle are represented by this tuple of tuples
@@ -9,33 +10,21 @@ PROJECTIONS = (((2,1), (3,1), (1,3), (3,1), (2,1)),
               )
 
 class Main():
-    def __init__(self, projections) -> None:
-        self.projections = PROJECTIONS
+    def __init__(self, projections):
+        self.projections = projections
         self.width = len(self.projections[0])
         self.height = len(self.projections[1])
         self.visualiser = Visualiser(self.projections, self.width, self.height)   
-        self.board = []
-        self._init_board()
-
-    # Initialises empty board, 0 = empty square, 1 = black square
-    def _init_board(self):
-        for i in range(self.height):
-            row = []
-            for j in range(self.width):
-                row.append(0)
-            self.board.append(row)
+        self.board = Board(self.width, self.height)
 
     def main_loop(self):
         while True:
-            self.visualiser.draw(self.board)
+            self.visualiser.draw(self.board.get())
 
             # temporary code for testing
-            x = int(input("x coordinate: ")) - 1
-            y = self.height - int(input("y coordiante: "))
-            if self.board[y][x]:
-                self.board[y][x] = 0
-            else:
-                self.board[y][x] = 1
+            x = int(input("x coordinate: "))
+            y = int(input("y coordiante: "))
+            print(self.board.mark(x, y))
             
 
 if __name__ == "__main__":
