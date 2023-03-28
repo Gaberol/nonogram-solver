@@ -26,8 +26,21 @@ class Main():
             x = int(input("x coordinate: "))
             y = int(input("y coordiante: "))
             print(self.board.mark(x, y))
+            count += 1
+            if count == 18:
+                if self.board.check(self.projections):
+                    print("Correct!")
+                else:
+                    print("Incorrect :(")
+                break
             
 
 if __name__ == "__main__":
+    test = [3, 4, 5]
+    test2 = []
+    test2.append(test[0])
+    print(test2.pop())
+    print(test2)
+    print(test)
     program = Main(PROJECTIONS)
     program.main_loop()
