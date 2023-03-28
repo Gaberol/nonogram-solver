@@ -18,6 +18,7 @@ class Main():
         self.board = Board(self.width, self.height)
 
     def main_loop(self):
+        count = 0
         while True:
             self.visualiser.draw(self.board.get())
 
